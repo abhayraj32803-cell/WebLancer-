@@ -1,0 +1,6 @@
+{
+  "name": "WebLancer - Freelance Marketplace",
+  "description": "A modern, secure and scalable freelancer marketplace connecting clients with top professionals for web development, mobile apps, and UI/UX design.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

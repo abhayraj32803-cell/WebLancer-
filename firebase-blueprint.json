@@ -1,0 +1,237 @@
+{
+  "entities": {
+    "User": {
+      "collectionName": "users",
+      "description": "User accounts for clients, freelancers, and admins",
+      "fields": {
+        "id": { "type": "string", "description": "User ID" },
+        "username": { "type": "string", "description": "Username handle" },
+        "name": { "type": "string", "description": "Full name" },
+        "email": { "type": "string", "description": "Email address" },
+        "role": { "type": "string", "description": "Role: guest, client, freelancer, admin" },
+        "avatar": { "type": "string", "description": "Avatar URL" },
+        "title": { "type": "string", "description": "Professional headline" },
+        "bio": { "type": "string", "description": "Bio description" },
+        "hourlyRate": { "type": "number", "description": "Hourly rate in USD" },
+        "rating": { "type": "number", "description": "Average review rating" },
+        "reviewsCount": { "type": "number", "description": "Count of reviews" },
+        "completedProjects": { "type": "number", "description": "Completed projects count" },
+        "skills": { "type": "array", "description": "List of technical skills" },
+        "isVerified": { "type": "boolean", "description": "KYC verified flag" },
+        "location": { "type": "string", "description": "User location" },
+        "languages": { "type": "array", "description": "Languages spoken" },
+        "joinedDate": { "type": "string", "description": "Join date ISO string" },
+        "availability": { "type": "string", "description": "Available, Part-time, Busy" },
+        "companyName": { "type": "string", "description": "Optional client company name" },
+        "website": { "type": "string", "description": "Personal or company website" },
+        "earningsTotal": { "type": "number", "description": "Lifetime earnings" },
+        "walletBalance": { "type": "number", "description": "Available wallet balance" },
+        "escrowBalance": { "type": "number", "description": "Active in-escrow funds" },
+        "isSuspended": { "type": "boolean", "description": "Suspended status" }
+      }
+    },
+    "Project": {
+      "collectionName": "projects",
+      "description": "Posted development projects and RFPs",
+      "fields": {
+        "id": { "type": "string", "description": "Project ID" },
+        "title": { "type": "string", "description": "Project title" },
+        "category": { "type": "string", "description": "Category slug" },
+        "projectType": { "type": "string", "description": "fixed or hourly" },
+        "description": { "type": "string", "description": "Full project description" },
+        "requiredFeatures": { "type": "array", "description": "Required features list" },
+        "requiredSkills": { "type": "array", "description": "Required skills list" },
+        "budgetMin": { "type": "number", "description": "Min budget" },
+        "budgetMax": { "type": "number", "description": "Max budget" },
+        "isNegotiable": { "type": "boolean", "description": "Budget negotiable flag" },
+        "expectedTimeline": { "type": "string", "description": "Timeline description" },
+        "preferredCompletionDate": { "type": "string", "description": "Target completion date" },
+        "status": { "type": "string", "description": "Project status" },
+        "clientId": { "type": "string", "description": "Client user ID" },
+        "clientName": { "type": "string", "description": "Client name" },
+        "clientAvatar": { "type": "string", "description": "Client avatar URL" },
+        "clientCompany": { "type": "string", "description": "Client company" },
+        "clientRating": { "type": "number", "description": "Client rating" },
+        "clientProjectsPosted": { "type": "number", "description": "Projects count" },
+        "clientLocation": { "type": "string", "description": "Client location" },
+        "createdAt": { "type": "string", "description": "Creation timestamp" },
+        "updatedAt": { "type": "string", "description": "Update timestamp" },
+        "proposalsCount": { "type": "number", "description": "Number of submitted proposals" },
+        "hiredFreelancerId": { "type": "string", "description": "Hired freelancer user ID" },
+        "hiredFreelancerName": { "type": "string", "description": "Hired freelancer name" },
+        "hiredFreelancerAvatar": { "type": "string", "description": "Hired freelancer avatar" },
+        "agreedPrice": { "type": "number", "description": "Agreed project price" },
+        "contractCreatedAt": { "type": "string", "description": "Contract start date" }
+      }
+    },
+    "Proposal": {
+      "collectionName": "proposals",
+      "description": "Proposals submitted by freelancers for projects",
+      "fields": {
+        "id": { "type": "string", "description": "Proposal ID" },
+        "projectId": { "type": "string", "description": "Project ID" },
+        "projectTitle": { "type": "string", "description": "Project title" },
+        "freelancerId": { "type": "string", "description": "Freelancer user ID" },
+        "freelancerName": { "type": "string", "description": "Freelancer full name" },
+        "freelancerAvatar": { "type": "string", "description": "Freelancer avatar" },
+        "freelancerTitle": { "type": "string", "description": "Freelancer title" },
+        "freelancerRating": { "type": "number", "description": "Freelancer rating" },
+        "freelancerReviewsCount": { "type": "number", "description": "Freelancer reviews count" },
+        "proposedAmount": { "type": "number", "description": "Bid amount" },
+        "estimatedDays": { "type": "number", "description": "Estimated delivery days" },
+        "coverLetter": { "type": "string", "description": "Proposal cover letter" },
+        "status": { "type": "string", "description": "Proposal status" },
+        "createdAt": { "type": "string", "description": "Creation timestamp" },
+        "winScore": { "type": "number", "description": "AI calculated win match score" }
+      }
+    },
+    "Milestone": {
+      "collectionName": "milestones",
+      "description": "Escrow milestones linked to projects",
+      "fields": {
+        "id": { "type": "string", "description": "Milestone ID" },
+        "projectId": { "type": "string", "description": "Project ID" },
+        "title": { "type": "string", "description": "Milestone title" },
+        "description": { "type": "string", "description": "Milestone description" },
+        "amount": { "type": "number", "description": "Milestone amount in USD" },
+        "dueDate": { "type": "string", "description": "Target due date" },
+        "deliverables": { "type": "string", "description": "Expected deliverables" },
+        "status": { "type": "string", "description": "Milestone status" },
+        "orderNumber": { "type": "number", "description": "Sequence order" },
+        "revisionCount": { "type": "number", "description": "Number of revisions" }
+      }
+    },
+    "ProjectMessage": {
+      "collectionName": "messages",
+      "description": "Real-time project workspace messages",
+      "fields": {
+        "id": { "type": "string", "description": "Message ID" },
+        "projectId": { "type": "string", "description": "Project ID" },
+        "senderId": { "type": "string", "description": "Sender User ID" },
+        "senderName": { "type": "string", "description": "Sender Name" },
+        "senderRole": { "type": "string", "description": "Sender Role" },
+        "senderAvatar": { "type": "string", "description": "Sender Avatar" },
+        "content": { "type": "string", "description": "Message text" },
+        "timestamp": { "type": "string", "description": "Sent timestamp" },
+        "isRead": { "type": "boolean", "description": "Read receipt flag" }
+      }
+    },
+    "ProjectFile": {
+      "collectionName": "projectFiles",
+      "description": "Files, assets, and code uploaded to project workspaces",
+      "fields": {
+        "id": { "type": "string", "description": "File ID" },
+        "projectId": { "type": "string", "description": "Project ID" },
+        "name": { "type": "string", "description": "File name" },
+        "size": { "type": "string", "description": "File size formatted" },
+        "type": { "type": "string", "description": "MIME type or extension" },
+        "category": { "type": "string", "description": "client_reference, freelancer_work, or final_delivery" },
+        "uploadedById": { "type": "string", "description": "Uploader User ID" },
+        "uploadedByName": { "type": "string", "description": "Uploader Name" },
+        "uploadedAt": { "type": "string", "description": "Uploaded timestamp" },
+        "url": { "type": "string", "description": "File URL" }
+      }
+    },
+    "Review": {
+      "collectionName": "reviews",
+      "description": "Reviews and ratings between clients and freelancers",
+      "fields": {
+        "id": { "type": "string", "description": "Review ID" },
+        "projectId": { "type": "string", "description": "Project ID" },
+        "projectTitle": { "type": "string", "description": "Project Title" },
+        "reviewerId": { "type": "string", "description": "Reviewer User ID" },
+        "reviewerName": { "type": "string", "description": "Reviewer Name" },
+        "reviewerAvatar": { "type": "string", "description": "Reviewer Avatar" },
+        "reviewerRole": { "type": "string", "description": "client or freelancer" },
+        "targetUserId": { "type": "string", "description": "Target User ID" },
+        "targetUserName": { "type": "string", "description": "Target User Name" },
+        "rating": { "type": "number", "description": "Overall Rating (1-5)" },
+        "comment": { "type": "string", "description": "Review text" },
+        "createdAt": { "type": "string", "description": "Created timestamp" }
+      }
+    },
+    "Dispute": {
+      "collectionName": "disputes",
+      "description": "Dispute cases submitted for arbitration",
+      "fields": {
+        "id": { "type": "string", "description": "Dispute ID" },
+        "projectId": { "type": "string", "description": "Project ID" },
+        "projectTitle": { "type": "string", "description": "Project Title" },
+        "contractAmount": { "type": "number", "description": "Total contract value" },
+        "initiatorId": { "type": "string", "description": "Initiator User ID" },
+        "initiatorName": { "type": "string", "description": "Initiator Name" },
+        "initiatorRole": { "type": "string", "description": "Initiator Role" },
+        "respondentId": { "type": "string", "description": "Respondent User ID" },
+        "respondentName": { "type": "string", "description": "Respondent Name" },
+        "reason": { "type": "string", "description": "Dispute reason" },
+        "description": { "type": "string", "description": "Detailed explanation" },
+        "status": { "type": "string", "description": "open, under_review, resolved, closed" },
+        "createdAt": { "type": "string", "description": "Created timestamp" }
+      }
+    },
+    "PaymentTransaction": {
+      "collectionName": "payments",
+      "description": "Escrow and payment transaction ledger",
+      "fields": {
+        "id": { "type": "string", "description": "Transaction ID" },
+        "paymentId": { "type": "string", "description": "Razorpay or payment provider ID" },
+        "orderId": { "type": "string", "description": "Order ID" },
+        "projectId": { "type": "string", "description": "Project ID" },
+        "projectTitle": { "type": "string", "description": "Project Title" },
+        "milestoneId": { "type": "string", "description": "Milestone ID" },
+        "clientId": { "type": "string", "description": "Client User ID" },
+        "freelancerId": { "type": "string", "description": "Freelancer User ID" },
+        "amount": { "type": "number", "description": "Total amount" },
+        "fee": { "type": "number", "description": "Platform fee" },
+        "netAmount": { "type": "number", "description": "Net amount" },
+        "currency": { "type": "string", "description": "Currency code" },
+        "status": { "type": "string", "description": "created, captured, refunded, disputed" },
+        "method": { "type": "string", "description": "Payment method" },
+        "createdAt": { "type": "string", "description": "Created timestamp" }
+      }
+    },
+    "Settlement": {
+      "collectionName": "settlements",
+      "description": "Freelancer bank payouts and settlements",
+      "fields": {
+        "id": { "type": "string", "description": "Settlement ID" },
+        "freelancerId": { "type": "string", "description": "Freelancer User ID" },
+        "freelancerName": { "type": "string", "description": "Freelancer Name" },
+        "amount": { "type": "number", "description": "Gross amount" },
+        "platformCommission": { "type": "number", "description": "Commission" },
+        "tdsDeduction": { "type": "number", "description": "TDS deduction" },
+        "netPayout": { "type": "number", "description": "Net payout" },
+        "status": { "type": "string", "description": "Settlement status" },
+        "bankAccountMasked": { "type": "string", "description": "Masked bank account" },
+        "initiatedAt": { "type": "string", "description": "Initiated timestamp" }
+      }
+    },
+    "AppNotification": {
+      "collectionName": "notifications",
+      "description": "User notification inbox",
+      "fields": {
+        "id": { "type": "string", "description": "Notification ID" },
+        "userId": { "type": "string", "description": "Recipient User ID" },
+        "title": { "type": "string", "description": "Title" },
+        "message": { "type": "string", "description": "Message content" },
+        "type": { "type": "string", "description": "Notification type" },
+        "read": { "type": "boolean", "description": "Read status" },
+        "createdAt": { "type": "string", "description": "Created timestamp" }
+      }
+    },
+    "PortfolioItem": {
+      "collectionName": "portfolios",
+      "description": "Freelancer showcase projects",
+      "fields": {
+        "id": { "type": "string", "description": "Portfolio item ID" },
+        "userId": { "type": "string", "description": "Freelancer user ID" },
+        "title": { "type": "string", "description": "Project title" },
+        "description": { "type": "string", "description": "Project description" },
+        "coverImage": { "type": "string", "description": "Cover image URL" },
+        "technologies": { "type": "array", "description": "Tech stack tags" },
+        "liveUrl": { "type": "string", "description": "Live URL" },
+        "completedAt": { "type": "string", "description": "Completion date" }
+      }
+    }
+  }
+}
